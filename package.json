@@ -1,0 +1,16 @@
+{
+  "name": "bigmacindex",
+  "version": "1.0.0",
+  "description": "How much is your big mac?",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shawn Springstead",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "mongoose": "^4.9.9",
+    "mustache-express": "^1.2.4"
+  }
+}
