@@ -1,12 +1,20 @@
-//Generates burger array for pictograph
-var BurgerGraphModel = require('../models/BurgerGraphModel');
+var CurrencySchema = require('../schemas/currency');
+var BurgerGraphModel = require('../models/BurgerGraphModel');//Generates burger array for pictograph
 
 module.exports = function(app){
 
 app.get('/', function(req, res){
 
+	CurrencySchema.find()
+	.then(function(data){
+		console.log(data);
+	})
+
 	var mdata = {
-		headStyles: ['/assets/css/styles.css'],
+		headScripts: ['https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
+						'/assets/js/country_dropdown.js'],
+		headStyles: ['/assets/css/styles.css',
+					'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css'	],
 		burgers: {
 			qty: 4.3,
 			graph: BurgerGraphModel.getBurgers(4.3)
