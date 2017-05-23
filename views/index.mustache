@@ -3,23 +3,25 @@
 
 		<div class="row">
 			<select class="country-selector">
-				<option value="CAD">CAD</option>
-				<option value="USD">USD</option>
-				<option value="INR">INR</option>
+				{{#burgerdata}}
+					<option value="{{exchangerate}}">{{currency}}</option>
+				{{/burgerdata}}
 			</select>
 		</div>
 		<div class="row">
-			<div class="col-lg-4 burgers">
-				{{#burgers.graph}}
+			{{#burgerdata}}
+				{{>burger-panel}}
+			{{/burgerdata}}
+
+			<!--
 				<div class="burger">
 					<img 
 						{{#dec}}
 							data-dec="{{dec}}"
 						{{/dec}} 
-							src="http://www.mcdonalds.ca/content/dam/Canada/en/product_pages/burgers-sandwiches/hero/hero_big-mac.png">
+						src="http://www.mcdonalds.ca/content/dam/Canada/en/product_pages/burgers-sandwiches/hero/hero_big-mac.png">
 				</div>
-				{{/burgers.graph}}
-			</div>
+			-->
 		</div>
 	</div>
 {{>footer}}

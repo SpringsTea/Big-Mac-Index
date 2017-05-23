@@ -1,14 +1,9 @@
-var CurrencySchema = require('../schemas/currency');
+var BurgerSchema = require('../schemas/burger');
 var BurgerGraphModel = require('../models/BurgerGraphModel');//Generates burger array for pictograph
 
 module.exports = function(app){
 
 app.get('/', function(req, res){
-
-	CurrencySchema.find()
-	.then(function(data){
-		console.log(data);
-	})
 
 	var mdata = {
 		headScripts: ['https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
@@ -21,8 +16,18 @@ app.get('/', function(req, res){
 		}
 	}
 
-	res.render('index', mdata);
-	//$('.burger img[data-dec]').css({clip: "rect(0, 30px, 50px, 0)"});
+	BurgerSchema.find()
+	.then(function(burgerdata){
+		mdata.burgerdata = burgerdata;
+	})
+	.then(function(result){
+		res.render('index', mdata);
+		//$('.burger img[data-dec]').css({clip: "rect(0, 30px, 50px, 0)"});
+	})
+	.then(undefined,function(err){
+		console.log("Error: "+err);
+	})
+
 });
 
 }
