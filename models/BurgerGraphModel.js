@@ -17,7 +17,7 @@ var getBurgers = function(qty){
 	//If there is a decimal, add an object and specify the percentage
 	if( dec > 0 ){
 		var burger = {
-			index : burgers.length,
+			index : burgers.length + 1,
 			dec: dec
 		}
 		burgers.push(burger);
