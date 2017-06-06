@@ -1,11 +1,19 @@
-.burgers .burger{
-	height: 50px;
-	width:50px;
-	display: inline;
-	float: left;
+.country-selector{
+	width:100px;
+}
 
-	img{
-		position: absolute;
-		height: inherit;
+.burger-panel-container{
+	padding-top: 20px;
+
+	.burgers .burger{
+		height: 50px;
+		width:50px;
+		display: inline;
+		float: left;
+
+		img{
+			position: absolute;
+			height: inherit;
+		}
 	}
 }

@@ -27,8 +27,7 @@ app.get('/', function(req, res){
 
 			obj.quantity = (BurgerQty).toFixed(2);
 			obj.graph = BurgerGraphModel.getBurgers(BurgerQty);
-
-			console.log(obj.graph);
+;
 		})
 		
 		return data;
@@ -36,8 +35,8 @@ app.get('/', function(req, res){
 	})
 	.then(function(result){
 		mdata.burgerdata = result;
+		console.log(result);
 		res.render('index', mdata);
-		//$('.burger img[data-dec]').css({clip: "rect(0, 30px, 50px, 0)"});
 	})
 	.then(undefined,function(err){
 		console.log("Error: "+err);

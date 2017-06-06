@@ -2,26 +2,17 @@
 	<div class="container">
 
 		<div class="row">
+		Show me the true cost in 
 			<select class="country-selector">
 				{{#burgerdata}}
 					<option value="{{exchangerate}}">{{currency}}</option>
 				{{/burgerdata}}
 			</select>
 		</div>
-		<div class="row">
+		<div class="row burger-panel-container">
 			{{#burgerdata}}
 				{{>burger-panel}}
 			{{/burgerdata}}
-
-			<!--
-				<div class="burger">
-					<img 
-						{{#dec}}
-							data-dec="{{dec}}"
-						{{/dec}} 
-						src="http://www.mcdonalds.ca/content/dam/Canada/en/product_pages/burgers-sandwiches/hero/hero_big-mac.png">
-				</div>
-			-->
 		</div>
 	</div>
 {{>footer}}

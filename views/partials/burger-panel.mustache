@@ -1,8 +1,13 @@
-<div class="col-lg-4 burger">
+<div class="col-lg-4 panel-burger">
 	<div class="panel panel-default">
 	  <div class="panel-heading">{{country}}</div>
 	  <div class="panel-body"> 
-		Burger Cost: {{cost}} {{currency}}
+	  	<div class="native-cost" data-cost="{{cost}}" data-exchange="{{exchangerate}}">
+			Burger Cost: {{cost}} {{currency}}
+		</div>
+		<div class="true-cost">
+			True Cost: <span class="val"></span>
+		</div>
 		 <div class="container burgers">
 			<div class="row">
 				{{#graph}}
