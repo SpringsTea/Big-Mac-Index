@@ -1,2 +1,2 @@
-.country-selector{width:100px}.burger-panel-container{padding-top:20px}.burger-panel-container .burgers .burger{height:50px;width:50px;display:inline;float:left}.burger-panel-container .burgers .burger img{position:absolute;height:inherit}
+.country-selector{width:100px}.burger-panel-container{padding-top:20px}.burger-panel-container .graph{position:relative}.burger-panel-container .graph .burger{height:50px;width:50px;display:inline;float:left}.burger-panel-container .graph .burger img{position:absolute;height:inherit}.burger-panel-container .graph .animate-burger{width:100%;height:100%;right:0;position:absolute;background-color:white;z-index:1}
 /*# sourceMappingURL=styles.css.map */

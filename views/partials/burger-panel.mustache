@@ -8,17 +8,18 @@
 		<div class="true-cost">
 			True Cost: <span class="val"></span>
 		</div>
-		 <div class="container burgers">
-			<div class="row">
-				{{#graph}}
-				<div class="burger">
-					<img 
-						{{#dec}}
-							data-dec="{{dec}}"
-						{{/dec}} 
-						src="http://www.mcdonalds.ca/content/dam/Canada/en/product_pages/burgers-sandwiches/hero/hero_big-mac.png">
-				</div>
-				{{/graph}}
+		 <div class="container-fluid burgers">
+			<div class="row graph">
+				<div class="animate-burger"></div>
+					{{#graph}}
+					<div class="burger">
+						<img 
+							{{#dec}}
+								data-dec="{{dec}}"
+							{{/dec}} 
+							src="http://www.mcdonalds.ca/content/dam/Canada/en/product_pages/burgers-sandwiches/hero/hero_big-mac.png">
+					</div>
+					{{/graph}}
 			</div>
 		 </div>
 	  </div>

@@ -4,7 +4,6 @@ $( document ).ready(function() {
     	$this = $(this)
     	var exchange = $this.val();
     	var currency = $this.select2('data')[0].text;
-    	console.log(currency);
 
     	$( ".panel-burger" ).each(function(index) {
 		  	var cost = $(this).find('.native-cost').data('cost');
@@ -15,4 +14,8 @@ $( document ).ready(function() {
 		});
     })
     .val('1').trigger('change');//Choose US as default option
+
+    $('.animate-burger').animate({
+    	width: "0"
+    }, 2000, 'linear')
 });
