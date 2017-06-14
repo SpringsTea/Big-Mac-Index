@@ -4,7 +4,8 @@
   "description": "How much is your big mac?",
   "main": "app.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "start": "node app.js"
   },
   "author": "Shawn Springstead",
   "license": "ISC",
