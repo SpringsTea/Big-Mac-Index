@@ -14,6 +14,7 @@ var dbuser = process.env.dbuser || config.dbuser;
 var dbpass = process.env.dbpass || config.dbpass;
 
 console.log(dbuser);
+console.log(dbpass);
 
 
 mongoose.Promise = global.Promise; // use native mongoose promises﻿
