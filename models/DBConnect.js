@@ -13,18 +13,20 @@ else{
 var dbuser = process.env.dbuser || config.dbuser;
 var dbpass = process.env.dbpass || config.dbpass;
 
+console.log(dbuser);
+
 
 mongoose.Promise = global.Promise; // use native mongoose promises﻿
 
 //conntect to database
-mongoose.connect( `mongodb://${dbuser}:${dbpass}@ds149551.mlab.com:49551/big_mac_index`, function( err, db ){
-	if(err){
-		console.log('Unable to connect to mongo. Error: ', err);
-	}
-	else{
-		console.log('Mongo connection successful');
-	}
-});
+mongoose.connect( `mongodb://${dbuser}:${dbpass}@ds149551.mlab.com:49551/big_mac_index`)
+.then(() => {
+	return true;
+})
+.catch(err => {
+	console.error('App starting error:', err.stack);
+	process.exit(1);
+})
 
 module.exports = {
   mongoose: mongoose
