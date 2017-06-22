@@ -25,6 +25,7 @@ app.get('/', function(req, res){
 			var exchange 	= obj.exchangerate;
 			var BurgerQty 	= USBurger / (cost / exchange);
 
+			obj.cost = (cost).toFixed(2);;
 			obj.quantity = (BurgerQty).toFixed(2);
 			obj.graph = BurgerGraphModel.getBurgers(BurgerQty);
 ;
