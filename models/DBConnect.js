@@ -24,6 +24,9 @@ mongoose.Promise = global.Promise; // use native mongoose promises﻿
 var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
                 replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };   
 
+console.log(dbuser);
+console.log(dbpass);
+
 //conntect to database
 mongoose.connect( `mongodb://${dbuser}:${dbpass}@ds149551.mlab.com:49551/big_mac_index`, options );
 

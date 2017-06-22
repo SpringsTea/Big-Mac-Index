@@ -6,8 +6,7 @@ var app = express();
 
 // setup ports
 
-var server_port = process.env.PORT || 8080;
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var server_port = process.env.PORT || 5000;
 
 app.engine('mustache', mustacheExpress(__dirname + '/views/partials'));
 app.set('view engine', 'mustache');
@@ -36,6 +35,6 @@ app.use(function(req, res, next){
   res.type('txt').send('Not found');
 });
 
-app.listen(server_port, server_ip_address, function(){
-    console.log( "Listening on " + server_ip_address + ", server_port " + server_port );
+app.listen(server_port, function(){
+    console.log( "Listening on port " + server_port );
 });
