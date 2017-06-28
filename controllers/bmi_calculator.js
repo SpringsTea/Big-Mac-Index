@@ -12,7 +12,8 @@ app.get('/', function(req, res){
 						'/assets/js/country_dropdown.js',
 						'/assets/js/burger_graph.js'],
 		headStyles: ['/assets/css/styles.css',
-					'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css'	]
+					'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css'	],
+		footScripts: ['/assets/js/client.min.js']
 	}
 
 	BurgerSchema.find().lean()
