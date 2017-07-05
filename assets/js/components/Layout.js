@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 
 import CurrencyDrop from "./CurrencyDrop";
 import BurgerPanel from "./BurgerPanel";
@@ -6,6 +7,18 @@ import BurgerPanel from "./BurgerPanel";
 export default class Layout extends React.Component{
 	constructor(){
 		super();
+		this.state ={
+			burgerdata: []
+		}
+		this.getBurgerData();
+	}
+
+	getBurgerData(){
+		axios.get('/burgerdata')
+			.then(res => {
+				const burgerdata = res.data;
+				this.setState({burgerdata});
+			})
 	}
 
 	render(){
@@ -13,11 +26,13 @@ export default class Layout extends React.Component{
 			<div>
 				<div class="row">
 					Show me the true cost in
-					<CurrencyDrop />
+					<CurrencyDrop burgerdata = {this.state.burgerdata} />
 				</div>
 
 				<div class="row burger-panel-container">
-					<BurgerPanel />
+				{this.state.burgerdata.map((item, index) => (
+					<BurgerPanel key = {index} burgerdata = {item} />
+				))}					
 				</div>
 			</div>
 		);
