@@ -8,11 +8,8 @@ module.exports = function(app){
 app.get('/', function(req, res){
 
 	var mdata = {
-		headScripts: ['https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
-						'/assets/js/country_dropdown.js',
-						'/assets/js/burger_graph.js'],
-		headStyles: ['/assets/css/styles.css',
-					'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css'	],
+		headScripts: ['https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js'],
+		headStyles: ['/assets/css/styles.css'],
 		footScripts: ['/assets/js/client.min.js']
 	}
 

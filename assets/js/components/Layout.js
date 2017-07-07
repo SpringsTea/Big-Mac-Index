@@ -38,18 +38,3 @@ export default class Layout extends React.Component{
 		);
 	}
 }
-
-
-// <div class="row">
-// Show me the true cost in 
-// 	<select class="country-selector">
-// 		{{#burgerdata}}
-// 			<option value="{{exchangerate}}">{{currency}}</option>
-// 		{{/burgerdata}}
-// 	</select>
-// </div>
-// <div class="row burger-panel-container">
-// 	{{#burgerdata}}
-// 		{{>burger-panel}}
-// 	{{/burgerdata}}
-// </div>

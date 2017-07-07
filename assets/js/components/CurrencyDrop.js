@@ -1,4 +1,8 @@
 import React from "react";
+import Select from "react-select";
+
+import style from 'react-select/dist/react-select.css';
+//require('react-select/dist/react-select.css');
 
 export default class CurrencyDrop extends React.Component{
 	constructor(){
@@ -6,30 +10,29 @@ export default class CurrencyDrop extends React.Component{
 	}
 
 	componentDidMount(){
-		 $('.country-selector').select2().on('change',function(val,test){
-	    	var $this = $(this)
-	    	var exchange = $this.val();
-	    	var currency = $this.select2('data')[0].text;
+	}
 
-	    	$( ".panel-burger" ).each(function(index) {
-			  	var cost = $(this).find('.native-cost').data('cost');
-			  	var USexchange = $(this).find('.native-cost').data('exchange');
-			  	var truecost = ((cost / USexchange) * exchange).toFixed(2);
-
-			  	$(this).find('.true-cost .val').html(truecost + ' ' + currency);
-			});
-	    })
-	    .val('1').trigger('change');//Choose US as default option
+	onHandelChange(e){
+		console.log('Change!');
 	}
 
 	render(){
+		var Select = require('react-select');
+		var options = [];
+
+		this.props.burgerdata.forEach(function(item){
+			let option = {value:'', label:''};
+			option.value = item.exchangerate;
+			option.label = item.currency;
+
+			options.push(option);
+		})		
+
 		return (
 			<div>
-				<select class="country-selector">
-					{this.props.burgerdata.map((item, index) => (
-						<option key={index} value={item.exchangerate} >{item.currency}</option>
-					))}	
-				</select>	
+				<Select
+					name="currency-select"
+					options={options}	/>
 			</div>
 		);
 	}
