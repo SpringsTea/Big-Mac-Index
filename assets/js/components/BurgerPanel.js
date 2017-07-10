@@ -3,6 +3,9 @@ import React from "react";
 export default class BurgerPanel extends React.Component{
 	constructor(){
 		super();
+		this.state = {
+			truecost: ""
+		}
 	}
 
 	componentDidMount(){
@@ -11,9 +14,23 @@ export default class BurgerPanel extends React.Component{
 	    }, 2000, 'linear')
 	}
 
+	setTrueCost(selected){
+		console.log('SEt!');
+		//TODO This only fires on the last bound child
+		let exchange = selected.value;
+		let currency = selected.label;
+
+		let burgerdata = this.props.burgerdata;
+		let cost = burgerdata.cost;
+		let USexchange = burgerdata.exchangerate;
+
+		let truecost = ((cost / USexchange) * exchange).toFixed(2);
+
+		this.setState({truecost:truecost + ' ' + currency});
+	}
+
 	render(){
 		let burgerdata = this.props.burgerdata;
-		console.log(burgerdata);
 		return (
 			<div class="col-lg-4 panel-burger">
 				<div class="panel panel-default">
@@ -23,7 +40,7 @@ export default class BurgerPanel extends React.Component{
 						Burger Cost: {burgerdata.cost} {burgerdata.currency}
 					</div>
 					<div class="true-cost">
-						True Cost: <span class="val"></span>
+						True Cost: <span class="val">{this.state.truecost}</span>
 					</div>
 					 <div class="container-fluid burgers">
 						<div class="row graph">

@@ -21,17 +21,21 @@ export default class Layout extends React.Component{
 			})
 	}
 
+	updateTrueCost(selected){
+		this.refs.burger.setTrueCost(selected);
+	}
+
 	render(){
 		return (
 			<div>
 				<div class="row">
 					Show me the true cost in
-					<CurrencyDrop burgerdata = {this.state.burgerdata} />
+					<CurrencyDrop currencyChange = {(e) => this.updateTrueCost(e)} burgerdata = {this.state.burgerdata} />
 				</div>
 
 				<div class="row burger-panel-container">
 				{this.state.burgerdata.map((item, index) => (
-					<BurgerPanel key = {index} burgerdata = {item} />
+					<BurgerPanel ref="burger" key = {index} burgerdata = {item} />
 				))}					
 				</div>
 			</div>

@@ -13,7 +13,8 @@ export default class CurrencyDrop extends React.Component{
 	}
 
 	onHandelChange(e){
-		console.log('Change!');
+		console.log(e);
+		this.props.currencyChange(e);
 	}
 
 	render(){
@@ -28,10 +29,14 @@ export default class CurrencyDrop extends React.Component{
 			options.push(option);
 		})		
 
+		console.log(options);
+
 		return (
 			<div>
 				<Select
 					name="currency-select"
+					value="1"
+					onChange={this.onHandelChange.bind(this)}
 					options={options}	/>
 			</div>
 		);
