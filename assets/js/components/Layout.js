@@ -8,7 +8,8 @@ export default class Layout extends React.Component{
 	constructor(){
 		super();
 		this.state ={
-			burgerdata: []
+			burgerdata: [],
+			selected:{value:1, label:"USD"}
 		}
 		this.getBurgerData();
 	}
@@ -22,7 +23,8 @@ export default class Layout extends React.Component{
 	}
 
 	updateTrueCost(selected){
-		this.refs.burger.setTrueCost(selected);
+		console.log(selected);
+		this.setState({selected});
 	}
 
 	render(){
@@ -35,7 +37,7 @@ export default class Layout extends React.Component{
 
 				<div class="row burger-panel-container">
 				{this.state.burgerdata.map((item, index) => (
-					<BurgerPanel ref="burger" key = {index} burgerdata = {item} />
+					<BurgerPanel selected={this.state.selected} key = {index} burgerdata = {item} />
 				))}					
 				</div>
 			</div>

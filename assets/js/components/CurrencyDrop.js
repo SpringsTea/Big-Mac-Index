@@ -7,14 +7,14 @@ import style from 'react-select/dist/react-select.css';
 export default class CurrencyDrop extends React.Component{
 	constructor(){
 		super();
-	}
-
-	componentDidMount(){
+		this.state = {
+			currency: null
+		}
 	}
 
 	onHandelChange(e){
-		console.log(e);
 		this.props.currencyChange(e);
+		this.setState({currency:e.value});
 	}
 
 	render(){
@@ -29,13 +29,12 @@ export default class CurrencyDrop extends React.Component{
 			options.push(option);
 		})		
 
-		console.log(options);
-
 		return (
 			<div>
 				<Select
 					name="currency-select"
-					value="1"
+					value={this.state.currency}
+					placeholder = "Select a currency"
 					onChange={this.onHandelChange.bind(this)}
 					options={options}	/>
 			</div>

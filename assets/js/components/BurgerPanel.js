@@ -9,14 +9,31 @@ export default class BurgerPanel extends React.Component{
 	}
 
 	componentDidMount(){
+
+		$( '.burger img[data-dec]' ).each(function( index ) {
+		  var $this = $(this);
+
+		  var dec = $this.data('dec');
+		  dec = dec * 50;// turn dec from a percentage to image width (50px image)
+
+		  //values less than 10px are not really visable
+		  if(dec < 10){
+		  	dec = 10;
+		  }
+
+		  $this.css({clip: "rect(0, "+dec+"px, 50px, 0)"});
+		});
+
 		$('.animate-burger').animate({
 	    	width: "0"
 	    }, 2000, 'linear')
 	}
 
+	componentWillReceiveProps (newProps){
+		this.setTrueCost(newProps.selected);
+	}
+
 	setTrueCost(selected){
-		console.log('SEt!');
-		//TODO This only fires on the last bound child
 		let exchange = selected.value;
 		let currency = selected.label;
 
